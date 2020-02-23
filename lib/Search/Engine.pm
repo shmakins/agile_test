@@ -31,7 +31,7 @@ sub _read_criteria {
 }
 
 sub match {
-    my ($self, $xml_file) = @_;
+    my ($self, $xml) = @_;
     my @strategies = @{$self->{_sc}};
 
     my @candidates;
@@ -39,7 +39,7 @@ sub match {
         if ($strategy->skip_match) {
             next;
         }
-        push @candidates, $strategy->match($xml_file);
+        push @candidates, $strategy->match($xml);
     }
     for my $candidate (@candidates) {
         for my $strategy (@strategies) {

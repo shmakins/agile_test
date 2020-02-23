@@ -51,8 +51,7 @@ sub _parse_class_value {
 
 sub match {
     my $self = shift; 
-    my $xml_file = shift;
-    my $xml = XML::LibXML->load_xml(location => $xml_file);
+    my $xml = shift;
     my $class = $self->match_value;
     my (@search_classes) = _parse_class_value($class);
     my @elements;
@@ -85,8 +84,7 @@ sub get_param_name { die "Abstract class" }
 
 sub match {
     my $self = shift;
-    my $xml_file = shift;
-    my $xml = XML::LibXML->load_xml(location => $xml_file);
+    my $xml = shift;
     my $attr_name = $self->get_param_name;
     my $value = $self->match_value;
     my @elements = $xml->querySelectorAll(qq{a[$attr_name='$value']});

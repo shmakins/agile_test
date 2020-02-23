@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use Getopt::Long qw(:config bundling no_ignore_case no_auto_abbrev require_order);
 use Search::Engine;
+use XML::LibXML;
 
 my $DEFAULT_SELECTOR = "#make-everything-ok-button";
 sub usage {
@@ -31,7 +32,8 @@ sub main  {
         file => $etalon_page,
     );
     for my $search_page (@search_pages) {
-        my $result = $engine->match($search_page);
+        my $xml = XML::LibXML->load_xml(location => $search_page);
+        my $result = $engine->match($xml);
         if ($result) {
             printf("Page %s, best button canidate with score %d is \n%s\n", $search_page, $result->score, $result->element);
         } else {
