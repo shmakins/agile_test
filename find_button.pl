@@ -35,7 +35,7 @@ sub main  {
         my $xml = XML::LibXML->load_xml(location => $search_page);
         my $result = $engine->match($xml);
         if ($result) {
-            printf("Page %s, best button canidate with score %d is \n%s\n", $search_page, $result->score, $result->element);
+            printf("Page %s, best button canidate %s with score %d is \n%s\n", $search_page, $result->element->nodePath, $result->score, $result->element);
         } else {
             printf("Page %s, no appropriate button candidate\n", $search_page);
         }
