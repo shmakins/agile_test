@@ -1,6 +1,6 @@
 1. Install dependecies
     sudo apt-get install cpanm;
-    sudo cpanm Params::Validate XML::LibXML XML::LibXML::QuerySelector Test::Class Test::More
+    sudo cpanm Params::Validate XML::LibXML XML::LibXML::QuerySelector Test::Class Test::More Class::Accessor
 2. Run the script
     perl  -I lib find_button.pl data/sample-0-origin.html data/sample-1-evil-gemini.html data/sample-2-container-and-clone.html data/sample-3-the-escape.html data/sample-4-the-mash.html
 3. If you like to run tests
